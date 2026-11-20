@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="LAC MA Ultimate Academy - آموزش تخصصی بازی Los Angeles Crimes">
+<title>LAC MA | Ultimate LAC Academy</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+ --bg:#070b14;--panel:#101827;--panel2:#151f31;
+ --cyan:#00e5d0;--blue:#438cff;--purple:#a56aff;
+ --gold:#e6bd63;--white:#f4f7ff;--muted:#98a7bd;
+ --border:rgba(255,255,255,.09);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Vazirmatn',Tahoma,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--cyan);color:#000}
+
+#progress{position:fixed;top:0;right:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--gold));z-index:9999}
+
+header{position:sticky;top:0;z-index:100;background:rgba(7,11,20,.91);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav{max-width:1250px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{display:flex;align-items:center;gap:11px;font-size:22px;font-weight:900;color:var(--gold)}
+.logo-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#173c4d,#14223b);border:1px solid rgba(230,189,99,.5);box-shadow:0 0 20px rgba(0,229,208,.13)}
+.logo small{display:block;font-size:9px;color:var(--muted);letter-spacing:2px}
+.nav-links{display:flex;align-items:center;gap:5px}
+.nav-links button{background:none;border:0;color:var(--muted);padding:9px 10px;border-radius:9px;font-size:11px;transition:.2s}
+.nav-links button:hover{background:rgba(0,229,208,.1);color:var(--cyan)}
+.menu-btn{display:none;border:1px solid var(--border);background:var(--panel);color:white;padding:9px 12px;border-radius:10px}
+
+.hero{position:relative;min-height:590px;display:flex;align-items:center;overflow:hidden;background:linear-gradient(90deg,rgba(7,11,20,.96),rgba(7,11,20,.68)),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero:before{content:"";position:absolute;width:480px;height:480px;background:var(--cyan);filter:blur(170px);opacity:.12;left:-100px;top:30px}
+.hero-content{position:relative;max-width:1250px;width:100%;margin:auto;padding:80px 25px}
+.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:3px;font-weight:800;margin-bottom:20px}
+.hero h1{font-size:clamp(43px,8vw,85px);font-weight:900;line-height:1.15;letter-spacing:-3px}
+.hero h1 span{background:linear-gradient(90deg,var(--cyan),var(--blue),var(--gold));-webkit-background-clip:text;color:transparent}
+.hero p{max-width:560px;color:#b4c1d4;line-height:2.3;margin-top:23px;font-size:14px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{border:0;padding:13px 24px;border-radius:11px;font-weight:800;font-size:13px;transition:.25s}
+.btn-primary{background:linear-gradient(100deg,var(--cyan),#5da9ff);color:#06111a}
+.btn-secondary{color:var(--white);background:rgba(255,255,255,.06);border:1px solid var(--border)}
+.btn:hover{transform:translateY(-3px)}
+
+.stats{max-width:1150px;margin:-38px auto 65px;position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 20px}
+.stat{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px 12px;text-align:center}
+.stat strong{display:block;color:var(--gold);font-size:25px}
+.stat span{color:var(--muted);font-size:11px}
+main{max-width:1250px;margin:auto;padding:0 22px 80px}
+.section{margin-top:85px;scroll-margin-top:100px}
+.section-heading{margin-bottom:28px}
+.section-heading small{color:var(--cyan);font-size:11px;letter-spacing:2px}
+.section-heading h2{font-size:27px;margin:8px 0}
+.section-heading p{color:var(--muted);font-size:12px;line-height:2}
+.search-box{display:flex;gap:10px;margin-bottom:25px}
+.search-box input{flex:1;min-width:0;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;color:white;outline:none}
+.search-box input:focus{border-color:var(--cyan)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--border);border-radius:17px;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:rgba(0,229,208,.4);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.card-image{height:155px;position:relative;overflow:hidden}
+.card-image img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.card:hover .card-image img{transform:scale(1.07)}
+.card-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#101827,transparent)}
+.card-body{padding:19px}
+.tag{display:inline-block;color:var(--cyan);background:rgba(0,229,208,.09);border:1px solid rgba(0,229,208,.15);border-radius:20px;padding:4px 10px;font-size:10px}
+.card h3{font-size:16px;margin:12px 0 8px}
+.card p{font-size:12px;color:var(--muted);line-height:2}
+.card button{margin-top:16px;width:100%;background:rgba(67,140,255,.1);border:1px solid rgba(67,140,255,.25);color:#83b5ff;border-radius:9px;padding:10px;font-weight:700}
+.card button:hover{background:rgba(0,229,208,.12);color:var(--cyan)}
+
+.learning-path{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.path{padding:23px;background:var(--panel);border:1px solid var(--border);border-radius:15px}
+.path .number{font-size:29px;font-weight:900;color:var(--gold)}
+.path h3{margin:8px 0}
+.path p{color:var(--muted);font-size:12px;line-height:2}
+.progress-track{height:5px;background:#273247;border-radius:20px;margin-top:16px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));transition:.4s}
+.path-btn{width:100%;margin-top:15px;background:rgba(67,140,255,.1);color:#83b5ff;border:1px solid var(--border);padding:10px;border-radius:9px}
+
+.lesson-area{background:linear-gradient(135deg,#111f30,#15142b);border:1px solid var(--border);border-radius:20px;padding:28px}
+.lesson-area h3{color:var(--gold);font-size:21px;margin-bottom:15px}
+.lesson-area p{color:#b9c5d6;font-size:13px;line-height:2.4;margin-bottom:12px}
+.lesson-area ul{padding-right:22px;color:#c9d4e3;font-size:13px;line-height:2.7}
+.lesson-area .note{background:rgba(0,229,208,.07);border-right:3px solid var(--cyan);padding:14px;border-radius:8px;margin-top:17px;font-size:12px;line-height:2}
+
+/* CMD ENGINE */
+.cmd-engine{background:radial-gradient(circle at 10% 0%,rgba(0,229,208,.09),transparent 35%),linear-gradient(145deg,#101c2c,#0b1020);border:1px solid rgba(0,229,208,.25);border-radius:20px;padding:25px;box-shadow:0 15px 50px rgba(0,0,0,.2)}
+.cmd-header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:25px}
+.cmd-brand{color:var(--cyan);font-size:12px;letter-spacing:2px;font-weight:900}
+.cmd-status{color:#53dba9;font-size:10px;background:rgba(83,219,169,.09);border:1px solid rgba(83,219,169,.2);padding:7px 12px;border-radius:20px}
+.cmd-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmd-panel{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:15px;padding:19px;min-width:0}
+.cmd-panel h3{color:var(--gold);font-size:15px;margin-bottom:17px}
+.cmd-field{margin-bottom:15px}
+.cmd-field label{display:block;color:#b8c7d9;font-size:11px;margin-bottom:8px}
+.cmd-field input,.cmd-field select,.cmd-field textarea,.condition-row select,.condition-row input{width:100%;background:#080e1a;color:white;border:1px solid #29364c;border-radius:9px;padding:12px;outline:none;font-size:12px;min-width:0}
+.cmd-field input:focus,.cmd-field select:focus,.cmd-field textarea:focus,.condition-row select:focus,.condition-row input:focus{border-color:var(--cyan)}
+.cmd-field select option,.condition-row select option{background:#101827}
+.cmd-field textarea{min-height:90px;resize:vertical;line-height:2}
+.cmd-action{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cmd-button{width:100%;padding:12px;border-radius:9px;font-size:11px;font-weight:800;border:1px solid var(--border);background:#1b2940;color:white}
+.cmd-button.main{background:linear-gradient(100deg,var(--cyan),#529bff);color:#06111a;border:0}
+.cmd-button:hover{filter:brightness(1.15)}
+.cmd-output{background:#050a12;border:1px solid #23374a;border-radius:13px;overflow:hidden}
+.cmd-output-head{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#101a2a;border-bottom:1px solid var(--border)}
+.cmd-output-head span{font-size:11px;color:var(--cyan)}
+.cmd-output pre{padding:18px;min-height:260px;max-height:550px;overflow:auto;white-space:pre-wrap;word-break:break-word;direction:ltr;text-align:left;color:#68e8c9;font-size:12px;line-height:2;font-family:monospace}
+.cmd-help{color:var(--muted);font-size:11px;line-height:2.2;margin-top:13px}
+.cmd-list{margin-top:17px;display:grid;gap:9px}
+.cmd-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px;background:#121d2e;border:1px solid var(--border);border-radius:9px;font-size:11px}
+.cmd-item code{direction:ltr;color:var(--cyan);overflow-wrap:anywhere;flex:1}
+.cmd-item-controls{display:flex;gap:5px;flex-shrink:0}
+.cmd-item button{background:rgba(255,90,90,.1);border:1px solid rgba(255,90,90,.2);color:#ff8b8b;padding:6px 9px;border-radius:7px;font-size:10px}
+.cmd-item button.move{background:rgba(67,140,255,.1);color:#83b5ff;border-color:rgba(67,140,255,.2)}
+.cmd-count{color:var(--gold);font-size:11px;margin-top:13px}
+.condition-row{display:grid;grid-template-columns:1.2fr .65fr 1fr auto;gap:6px;margin-bottom:9px}
+.condition-row button{background:rgba(255,80,80,.12);color:#ff8585;border:1px solid rgba(255,80,80,.25);border-radius:8px;padding:0 10px}
+.cmd-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}
+.cmd-tab{border:1px solid var(--border);background:#101a2a;color:#aebbd0;padding:8px 11px;border-radius:8px;font-size:10px}
+.cmd-tab.active{background:rgba(0,229,208,.12);color:var(--cyan);border-color:rgba(0,229,208,.4)}
+.cmd-guide{background:#080e1a;border:1px solid var(--border);padding:13px;border-radius:10px;margin-top:10px}
+.cmd-guide code{display:block;direction:ltr;text-align:left;color:#68e8c9;white-space:pre-wrap;line-height:2;margin-top:8px;font-size:11px}
+.cmd-warning{border-right:3px solid var(--gold);background:rgba(230,189,99,.07);padding:12px;border-radius:8px;color:#d8c69d;font-size:11px;line-height:2;margin-top:13px}
+
+.quiz{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:25px}
+.quiz h3{margin-bottom:20px}
+.quiz-options{display:grid;gap:10px}
+.quiz-options button{background:var(--panel2);border:1px solid var(--border);color:white;text-align:right;padding:13px;border-radius:10px;font-size:13px}
+.quiz-options button:hover{border-color:var(--cyan)}
+.quiz-options button.correct{border-color:#36d69b;background:rgba(54,214,155,.1)}
+.quiz-options button.wrong{border-color:#ff6262;background:rgba(255,98,98,.1)}
+#quiz-result{margin-top:18px;font-size:13px;color:var(--gold)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
+.about-box{background:var(--panel);border:1px solid var(--border);padding:30px;border-radius:18px}
+.about-box h2{font-size:29px;color:var(--gold);margin-bottom:12px}
+.about-box p{color:var(--muted);font-size:13px;line-height:2.4}
+.about-visual{min-height:250px;display:grid;place-items:center;border-radius:18px;background:radial-gradient(circle,#1b4050,#101827 65%);border:1px solid rgba(230,189,99,.25)}
+.about-visual strong{font-size:clamp(40px,8vw,70px);color:var(--gold);text-shadow:0 0 40px rgba(230,189,99,.3)}
+footer{border-top:1px solid var(--border);background:#090e18;padding:35px 20px;text-align:center}
+footer strong{color:var(--gold);font-size:22px}
+footer p{color:var(--muted);font-size:11px;line-height:2.5;margin-top:10px}
+.modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);padding:20px;align-items:center;justify-content:center}
+.modal.show{display:flex}
+.modal-content{max-width:650px;width:100%;max-height:85vh;overflow:auto;background:#111c2c;border:1px solid rgba(0,229,208,.3);border-radius:18px;padding:27px}
+.modal-content h2{color:var(--gold);margin-bottom:15px}
+.modal-content p{color:#b8c6d8;line-height:2.5;font-size:13px;white-space:pre-line}
+.close{float:left;background:#263248;color:white;border:0;padding:8px 13px;border-radius:8px}
+
+@media(max-width:850px){
+ .nav-links{display:none;position:absolute;top:68px;right:10px;left:10px;padding:15px;background:#111a2a;border:1px solid var(--border);border-radius:13px;flex-direction:column;align-items:stretch}
+ .nav-links.open{display:flex}
+ .nav-links button{text-align:right}
+ .menu-btn{display:block}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .cmd-layout{grid-template-columns:1fr}
+}
+@media(max-width:550px){
+ .hero{min-height:520px}
+ .hero h1{letter-spacing:-1px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .grid,.learning-path{grid-template-columns:1fr}
+ .about{grid-template-columns:1fr}
+ .section{margin-top:60px}
+ .cmd-engine{padding:14px}
+ .cmd-panel{padding:14px}
+ .condition-row{grid-template-columns:1fr 1fr}
+ .condition-row input{grid-column:1/3}
+ .condition-row button{grid-column:1/3;padding:9px}
+}
+</style>
+</head>
+
+<body>
+<div id="progress"></div>
+
+<header>
+ <nav class="nav">
+  <a class="logo" href="#">
+   <div class="logo-icon">L</div>
+   <div>LAC MA<small>ULTIMATE ACADEMY</small></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+   <button onclick="go('home')">خانه</button>
+   <button onclick="go('courses')">آموزش‌ها</button>
+   <button onclick="go('paths')">مسیر یادگیری</button>
+   <button onclick="go('tips')">ترفندها</button>
+   <button onclick="go('cmd')">CMD ساز</button>
+   <button onclick="go('quiz')">آزمون</button>
+   <button onclick="go('about')">درباره ما</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMenu()">☰ منو</button>
+ </nav>
+</header>
+
+<section class="hero" id="home">
+ <div class="hero-content">
+  <div class="eyebrow">WELCOME TO THE WORLD OF LAC MA</div>
+  <h1>MASTER<br><span>LOS ANGELES</span><br>CRIMES</h1>
+  <p>به آکادمی تخصصی LAC MA خوش آمدید. اینجا دنیای Los Angeles Crimes را از سطح مبتدی تا حرفه‌ای یاد می‌گیرید؛ از رانندگی و تنظیمات گرفته تا Multiplayer، ساخت مپ و مدیریت بازی.</p>
+  <div class="hero-actions">
+   <button class="btn btn-primary" onclick="go('courses')">شروع آموزش ←</button>
+   <button class="btn btn-secondary" onclick="go('about')">درباره LAC MA</button>
+  </div>
+ </div>
+</section>
+
+<div class="stats">
+ <div class="stat"><strong>06+</strong><span>دسته آموزشی</span></div>
+ <div class="stat"><strong>24/7</strong><span>دسترسی به آموزش‌ها</span></div>
+ <div class="stat"><strong>100%</strong><span>رابط کاربری واکنش‌گرا</span></div>
+ <div class="stat"><strong>∞</strong><span>فرصت یادگیری</span></div>
+</div>
+
+<main>
+<section class="section" id="courses">
+ <div class="section-heading">
+  <small>KNOWLEDGE CENTER</small>
+  <h2>مرکز آموزش LAC</h2>
+  <p>موضوع موردنظر خود را انتخاب کنید و یادگیری را آغاز کنید.</p>
+ </div>
+ <div class="search-box">
+  <input id="search" placeholder="جست‌وجو در آموزش‌ها..." oninput="searchCards()">
+ </div>
+ <div class="grid" id="courseGrid">
+  <article class="card" data-search="مقدماتی شروع بازی آشنایی">
+   <div class="card-image"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80"></div>
+   <div class="card-body"><span class="tag">BEGINNER</span><h3>آموزش مقدماتی</h3><p>آشنایی با محیط بازی، منوها، کنترل‌ها و امکانات اولیه.</p><button onclick="lesson('beginner')">مشاهده آموزش</button></div>
+  </article>
+  <article class="card" data-search="رانندگی خودرو ماشین">
+   <div class="card-image"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"></div>
+   <div class="card-body"><span class="tag">DRIVING</span><h3>آموزش رانندگی</h3><p>آشنایی با کنترل خودرو، پیچ‌ها، ترمز و رانندگی بهتر.</p><button onclick="lesson('driving')">مشاهده آموزش</button></div>
+  </article>
+  <article class="card" data-search="سلاح تجهیزات مبارزه">
+   <div class="card-image"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80"></div>
+   <div class="card-body"><span class="tag">EQUIPMENT</span><h3>سلاح‌ها و تجهیزات</h3><p>آشنایی با تجهیزات بازی، انتخاب مناسب و مدیریت منابع.</p><button onclick="lesson('equipment')">مشاهده آموزش</button></div>
+  </article>
+  <article class="card" data-search="چندنفره multiplayer آنلاین">
+   <div class="card-image"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80"></div>
+   <div class="card-body"><span class="tag">MULTIPLAYER</span><h3>آموزش Multiplayer</h3><p>ورود به سرورها، بازی گروهی و آشنایی با تعاملات آنلاین.</p><button onclick="lesson('multi')">مشاهده آموزش</button></div>
+  </article>
+  <article class="card" data-search="مپ نقشه map builder ساخت">
+   <div class="card-image"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80"></div>
+   <div class="card-body"><span class="tag">MAP BUILDER</span><h3>ساخت و مدیریت مپ</h3><p>آشنایی با طراحی محیط، چیدمان و ساخت تجربه‌های اختصاصی.</p><button onclick="lesson('map')">مشاهده آموزش</button></div>
+  </article>
+  <article class="card" data-search="تنظیمات گرافیک صدا کنترل">
+   <div class="card-image"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=80"></div>
+   <div class="card-body"><span class="tag">SETTINGS</span><h3>تنظیمات حرفه‌ای</h3><p>تنظیمات گرافیک، صدا، کنترل‌ها و بهینه‌سازی تجربه بازی.</p><button onclick="lesson('settings')">مشاهده آموزش</button></div>
+  </article>
+ </div>
+</section>
+
+<section class="section" id="paths">
+ <div class="section-heading"><small>YOUR JOURNEY</small><h2>مسیر پیشرفت شما</h2><p>با گذراندن مراحل آموزشی، مهارت خود را ارتقا دهید.</p></div>
+ <div class="learning-path">
+  <div class="path"><div class="number">01</div><h3>BEGINNER</h3><p>آشنایی با بازی و یادگیری اصول اولیه.</p><div class="progress-track"><div class="progress-fill" id="p1"></div></div><button class="path-btn" onclick="lesson('beginner')">شروع مرحله</button></div>
+  <div class="path"><div class="number">02</div><h3>INTERMEDIATE</h3><p>یادگیری رانندگی، تجهیزات و Multiplayer.</p><div class="progress-track"><div class="progress-fill" id="p2"></div></div><button class="path-btn" onclick="lesson('driving')">شروع مرحله</button></div>
+  <div class="path"><div class="number">03</div><h3>ADVANCED</h3><p>طراحی مپ، مدیریت محیط و مهارت‌های پیشرفته.</p><div class="progress-track"><div class="progress-fill" id="p3"></div></div><button class="path-btn" onclick="lesson('map')">شروع مرحله</button></div>
+ </div>
+</section>
+
+<section class="section" id="tips">
+ <div class="section-heading"><small>PRO KNOWLEDGE</small><h2>نکات و ترفندهای حرفه‌ای</h2><p>چند نکته کاربردی برای تجربه بهتر بازی.</p></div>
+ <div class="lesson-area">
+  <h3>★ نکات طلایی LAC MA</h3>
+  <ul>
+   <li>پیش از شروع بازی، تنظیمات کنترل را مطابق راحتی خود تنظیم کنید.</li>
+   <li>برای رانندگی بهتر، در محیط‌های خلوت تمرین کنید.</li>
+   <li>در بازی گروهی، با اعضای تیم هماهنگی داشته باشید.</li>
+   <li>برای ساخت مپ، ابتدا یک طرح کلی از محیط آماده کنید.</li>
+   <li>از تنظیمات گرافیکی متناسب با توانایی گوشی استفاده کنید.</li>
+   <li>پیش از انتشار مپ، تمام بخش‌های آن را آزمایش کنید.</li>
+  </ul>
+  <div class="note">نکته LAC MA: مهارت واقعی با تمرین، تجربه و شناخت امکانات بازی به دست می‌آید.</div>
+ </div>
+</section>
+
+<!-- ADVANCED CMD ENGINE -->
+<section class="section" id="cmd">
+ <div class="section-heading">
+  <small>COMMAND DEVELOPMENT SYSTEM</small>
+  <h2>دستگاه پیشرفته ساخت CMD</h2>
+  <p>ساخت اسکریپت TriggerBox با شرط‌های ترکیبی، دستورات دسته‌بندی‌شده و خروجی قابل کپی.</p>
+ </div>
+
+ <div class="cmd-engine">
+  <div class="cmd-header">
+   <div><div class="cmd-brand">LAC MA // CMD ENGINE PRO</div><div style="font-size:20px;font-weight:900;margin-top:7px">TRIGGERBOX STUDIO</div></div>
+   <span class="cmd-status">● BUILDER READY</span>
+  </div>
+
+  <div class="cmd-layout">
+   <div class="cmd-panel">
+    <h3>⚙ تنظیمات پروژه</h3>
+
+    <div class="cmd-field">
+     <label>نام پروژه</label>
+     <input id="cmdDescription" placeholder="مثلاً LAC MA DRAGON">
+    </div>
+
+    <div class="cmd-field">
+     <label>حالت اجرا</label>
+     <select id="cmdMode">
+      <option value="enter">mode{enter} — ورود</option>
+      <option value="exit">mode{exit} — خروج</option>
+      <option value="onclick">mode{onclick} — کلیک</option>
+      <option value="solid">mode{solid} — حالت جامد</option>
+      <option value="stay">mode{stay} — حضور در منطقه</option>
+      <option value="loop">mode{loop} — حلقه‌ای</option>
+     </select>
+    </div>
+
+    <div class="cmd-field">
+     <label>شرط‌های اجرا</label>
+     <div id="conditionList"></div>
+     <div class="cmd-action">
+      <button class="cmd-button" type="button" onclick="addConditionRow()">＋ افزودن شرط</button>
+      <button class="cmd-button" type="button" onclick="clearConditions()">پاک‌کردن شرط‌ها</button>
+     </div>
+     <p class="cmd-help">شرط‌ها با && به هم متصل می‌شوند. نمونه: dial=5 && speed>300</p>
+    </div>
+
+    <div class="cmd-field" id="cooldownBox" style="display:none">
+     <label>Cooldown حالت Loop (ثانیه)</label>
+     <input id="cmdCooldown" type="number" min="0.1" max="9999" step="0.1" value="2">
+     <p class="cmd-help">در حالت Loop، Cooldown به‌صورت خودکار در انتهای خروجی قرار می‌گیرد.</p>
+    </div>
+
+    <div class="cmd-field">
+     <label>دسته‌بندی دستور</label>
+     <select id="cmdCategory">
+      <option value="player">بازیکن</option>
+      <option value="vehicle">وسیله نقلیه</option>
+      <option value="weapon">سلاح</option>
+      <option value="inventory">موجودی</option>
+      <option value="teleport">تله‌پورت</option>
+      <option value="effects">افکت‌ها</option>
+      <option value="world">دنیای بازی</option>
+      <option value="object">آبجکت و صحنه</option>
+      <option value="npc">NPC</option>
+      <option value="ui">چت و رابط کاربری</option>
+      <option value="cinematic">دوربین سینمایی</option>
+      <option value="minimap">مینی‌مپ</option>
+      <option value="advanced">پیشرفته</option>
+      <option value="custom">دستور سفارشی</option>
+     </select>
+    </div>
+
+    <div class="cmd-field">
+     <label>دستور موردنظر</label>
+     <select id="cmdAction"></select>
+    </div>
+
+    <div class="cmd-field" id="cmdParameterBox">
+     <label id="cmdParameterLabel">پارامتر دستور</label>
+     <input id="cmdParameter" placeholder="مقدار را وارد کنید">
+     <p class="cmd-help" id="cmdParameterHelp"></p>
+    </div>
+
+    <div class="cmd-field" id="customActionBox" style="display:none">
+     <label>دستور کامل سفارشی</label>
+     <textarea id="customAction" placeholder="مثلاً chat{Welcome to LAC MA}"></textarea>
+     <p class="cmd-help">دستور را با قالب صحیح وارد کن. هر دستور باید فقط یک خط باشد.</p>
+    </div>
+
+    <div class="cmd-action">
+     <button class="cmd-button main" onclick="addCommand()">＋ افزودن دستور</button>
+     <button class="cmd-button" onclick="previewCommand()">پیش‌نمایش</button>
+    </div>
+    <p class="cmd-help">دستورات افزوده‌شده به ترتیب در اسکریپت قرار می‌گیرند. برای تغییر ترتیب از دکمه‌های بالا و پایین فهرست استفاده کن.</p>
+   </div>
+
+   <div class="cmd-panel">
+    <h3>⌨ خروجی اسکریپت</h3>
+    <div class="cmd-output">
+     <div class="cmd-output-head"><span>● LAC_MA_TRIGGERBOX</span><span style="color:#8294aa">SOURCE CODE</span></div>
+     <pre id="cmdOutput">mode{enter}</pre>
+    </div>
+    <div class="cmd-action" style="margin-top:13px">
+     <button class="cmd-button main" onclick="copyCMD()">کپی کل CMD</button>
+     <button class="cmd-button" onclick="downloadCMD()">دانلود TXT</button>
+    </div>
+    <div class="cmd-action" style="margin-top:10px">
+     <button class="cmd-button" onclick="clearCMD()">پاک‌کردن پروژه</button>
+     <button class="cmd-button" onclick="addSample()">افزودن نمونه</button>
+    </div>
+    <div class="cmd-count" id="cmdCount">تعداد دستورات: 0</div>
+    <div class="cmd-help" id="cmdStatus">وضعیت: آماده ساخت پروژه</div>
+   </div>
+  </div>
+
+  <div class="cmd-panel" style="margin-top:18px">
+   <h3>📦 فهرست دستورات پروژه</h3>
+   <div id="cmdList" class="cmd-list"><div class="cmd-help">هنوز دستوری اضافه نشده است.</div></div>
+  </div>
+
+  <div class="cmd-panel" style="margin-top:18px">
+   <h3>📚 راهنمای ساختار CMD</h3>
+   <div class="cmd-guide">
+    <b>ساختار اصلی:</b>
+    <code>mode{enter}
+ifcondition{dial=5}
+chat{Welcome to LAC MA}</code>
+   </div>
+   <div class="cmd-guide">
+    <b>شرط ترکیبی:</b>
+    <code>mode{loop}
+ifcondition{dial=5 && speed>300}
+chat{LAC MA}
+cooldown{2}</code>
+   </div>
+   <div class="cmd-warning">هشدار: در mode{loop} حتماً از cooldown{} استفاده کن. استفاده از دستورات پرتکرار و شبکه‌ای بدون Cooldown ممکن است باعث اختلال در اجرای مپ شود.</div>
+   <p class="cmd-help">قالب دستورها از فایل آموزشی TriggerBox استخراج شده است. برای دستورهایی که قالب کامل آن‌ها در راهنما مشخص نیست، از ورودی سفارشی استفاده کن.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="quiz">
+ <div class="section-heading"><small>KNOWLEDGE TEST</small><h2>آزمون دانش LAC</h2><p>دانش خود درباره مفاهیم بازی را امتحان کنید.</p></div>
+ <div class="quiz">
+  <h3 id="question">برای شروع آزمون آماده‌ای؟</h3>
+  <div class="quiz-options" id="options"><button onclick="startQuiz()">شروع آزمون</button></div>
+  <div id="quiz-result"></div>
+ </div>
+</section>
+
+<section class="section" id="about">
+ <div class="about">
+  <div class="about-box">
+   <h2>LAC MA</h2>
+   <p>LAC MA یک مجموعه آموزشی و خلاقانه با محوریت بازی Los Angeles Crimes است. هدف ما ایجاد یک مرجع آموزشی برای بازیکنان، علاقه‌مندان به طراحی مپ و اعضای جامعه LAC است.<br><br>این آکادمی برای یادگیری، خلاقیت، پیشرفت و ساخت تجربه‌های بهتر در دنیای LAC ایجاد شده است.</p>
+  </div>
+  <div class="about-visual"><strong>LAC MA</strong></div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <strong>LAC MA</strong>
+ <p>ULTIMATE LOS ANGELES CRIMES ACADEMY<br>Designed & Developed by LAC MA<br>© 2026 LAC MA. All Rights Reserved.<br><br>این وب‌سایت یک پروژه آموزشی مستقل و غیررسمی است و وابستگی رسمی به سازندگان بازی ندارد.</p>
+</footer>
+
+<div class="modal" id="modal" onclick="outsideClose(event)">
+ <div class="modal-content">
+  <button class="close" onclick="closeLesson()">بستن ✕</button>
+  <h2 id="modal-title"></h2>
+  <p id="modal-text"></p>
+  <br>
+  <button class="btn btn-primary" onclick="completeLesson()">✓ تکمیل این آموزش</button>
+ </div>
+</div>
+
+<script>
+/* LESSONS */
+const lessons={
+ beginner:{
+  title:"آموزش مقدماتی Los Angeles Crimes",
+  text:`مرحله اول: آشنایی با بازی
+
+1. بازی را اجرا کنید.
+2. با منوی اصلی آشنا شوید.
+3. حالت‌های مختلف بازی را بررسی کنید.
+4. کنترل حرکت شخصیت را تمرین کنید.
+5. محیط بازی را به‌خوبی بشناسید.
+
+مرحله دوم: شناخت محیط
+- ساختمان‌ها و خیابان‌ها
+- وسایل نقلیه
+- امکانات تعاملی
+- تنظیمات اولیه
+
+پیشنهاد LAC MA:
+ابتدا تمام امکانات پایه را یاد بگیرید و سپس سراغ بخش‌های پیشرفته بروید.`
+ },
+ driving:{
+  title:"آموزش رانندگی در LAC",
+  text:`آموزش رانندگی
+
+مرحله اول: شناخت کنترل‌ها
+- گاز دادن
+- ترمز گرفتن
+- فرمان دادن
+- حرکت به عقب
+- کنترل سرعت
+
+مرحله دوم: تمرین
+1. یک خودروی مناسب انتخاب کنید.
+2. در یک مسیر خلوت حرکت کنید.
+3. پیچیدن را تمرین کنید.
+4. توقف و پارک را یاد بگیرید.
+5. کنترل خودرو را در سرعت‌های مختلف آزمایش کنید.
+
+نکته:
+سرعت زیاد همیشه به معنی رانندگی بهتر نیست!`
+ },
+ equipment:{
+  title:"آشنایی با تجهیزات بازی",
+  text:`تجهیزات و امکانات
+
+در این بخش با مفهوم تجهیزات و امکانات قابل استفاده در بازی آشنا می‌شوید.
+
+موضوعات:
+- شناخت تجهیزات
+- آشنایی با رابط کاربری
+- انتخاب امکانات مناسب
+- مدیریت منابع
+- رعایت قوانین سرور
+
+توجه:
+نام و عملکرد دقیق تجهیزات ممکن است با نسخه بازی تفاوت داشته باشد.`
+ },
+ multi:{
+  title:"آموزش Multiplayer",
+  text:`آموزش بازی چندنفره
+
+مرحله اول:
+با بخش Multiplayer آشنا شوید.
+
+مرحله دوم:
+نحوه ورود به سرور را بررسی کنید.
+
+مرحله سوم:
+قوانین و امکانات سرور را بخوانید.
+
+مرحله چهارم:
+با سایر بازیکنان ارتباط برقرار کنید.
+
+نکات مهم:
+- احترام به بازیکنان
+- رعایت قوانین سرور
+- همکاری تیمی
+- حفظ امنیت اطلاعات حساب`
+ },
+ map:{
+  title:"آموزش ساخت مپ",
+  text:`آموزش طراحی مپ
+
+مرحله اول: ایده‌پردازی
+موضوع مپ خود را انتخاب کنید.
+
+مرحله دوم: طراحی محیط
+- خیابان‌ها
+- ساختمان‌ها
+- محل‌های عمومی
+- مسیرهای حرکتی
+
+مرحله سوم: چیدمان
+اشیای موردنیاز را در موقعیت مناسب قرار دهید.
+
+مرحله چهارم: آزمایش
+تمام قسمت‌های مپ را بررسی کنید.
+
+مرحله پنجم: بهینه‌سازی
+اشکالات را اصلاح کنید و تجربه بازیکنان را بهبود دهید.
+
+LAC MA: یک مپ خوب، فقط زیبا نیست؛ باید کاربردی هم باشد.`
+ },
+ settings:{
+  title:"تنظیمات حرفه‌ای بازی",
+  text:`تنظیمات پیشنهادی
+
+گرافیک:
+تنظیم کیفیت تصویر متناسب با توان گوشی.
+
+صدا:
+تنظیم صدای محیط و سایر گزینه‌های صوتی.
+
+کنترل:
+انتخاب چیدمان مناسب برای راحتی بیشتر.
+
+عملکرد:
+بستن برنامه‌های غیرضروری و آزاد کردن منابع گوشی.
+
+نکته:
+بهترین تنظیمات برای همه گوشی‌ها یکسان نیست.`
+ }
+};
+
+let currentLesson="";
+let completed=[];
+try{completed=JSON.parse(localStorage.getItem("lac_completed")||"[]");}catch(e){completed=[];}
+
+function go(id){
+ document.getElementById(id).scrollIntoView({behavior:"smooth"});
+ document.getElementById("navLinks").classList.remove("open");
+}
+function toggleMenu(){document.getElementById("navLinks").classList.toggle("open");}
+function lesson(id){
+ const item=lessons[id];if(!item)return;
+ currentLesson=id;
+ document.getElementById("modal-title").innerText=item.title;
+ document.getElementById("modal-text").innerText=item.text;
+ document.getElementById("modal").classList.add("show");
+}
+function closeLesson(){document.getElementById("modal").classList.remove("show");}
+function outsideClose(e){if(e.target.id==="modal")closeLesson();}
+function completeLesson(){
+ if(!completed.includes(currentLesson)){
+  completed.push(currentLesson);
+  localStorage.setItem("lac_completed",JSON.stringify(completed));
+ }
+ updateProgress();closeLesson();alert("آموزش با موفقیت ثبت شد!");
+}
+function updateProgress(){
+ const beginner=completed.includes("beginner")?100:0;
+ const middle=["driving","equipment","multi"].filter(x=>completed.includes(x)).length/3*100;
+ const advanced=completed.includes("map")?100:0;
+ document.getElementById("p1").style.width=beginner+"%";
+ document.getElementById("p2").style.width=middle+"%";
+ document.getElementById("p3").style.width=advanced+"%";
+}
+function searchCards(){
+ const value=document.getElementById("search").value.toLowerCase();
+ document.querySelectorAll(".card[data-search]").forEach(card=>{
+  card.style.display=card.innerText.toLowerCase().includes(value)||card.dataset.search.includes(value)?"":"none";
+ });
+}
+
+/* ADVANCED CMD ENGINE */
+const cmdCatalog={
+ player:[
+  {value:"trap",title:"گیر انداختن بازیکن",label:"بدون پارامتر",none:true,wrap:"player"},
+  {value:"damage",title:"تغییر سلامت / آسیب",label:"مقدار 1 تا 100",example:"20",wrap:"player"},
+  {value:"heal",title:"درمان بازیکن",label:"مقدار درمان",example:"100",wrap:"player"},
+  {value:"invincible",title:"حالت محافظت در برابر برخورد",label:"true یا false",example:"true",wrap:"player"},
+  {value:"respawn",title:"ریسپاون بازیکن",label:"بدون پارامتر",none:true,wrap:"player"},
+  {value:"respawntimer",title:"تنظیم زمان ریسپاون",label:"زمان",example:"10",wrap:"player"},
+  {value:"nophone",title:"مسدود کردن گوشی",label:"بدون پارامتر",none:true,wrap:"player"},
+  {value:"cammode",title:"تغییر حالت دوربین",label:"0 تا 3",example:"3",wrap:"player"},
+  {value:"race",title:"شروع مسابقه سواره",label:"بدون پارامتر",none:true,wrap:"player"},
+  {value:"race*foot",title:"شروع مسابقه پیاده",label:"بدون پارامتر",none:true,wrap:"player",raw:true},
+  {value:"spawn&drive",title:"ساخت وسیله و سوار کردن",label:"مدل وسیله نقلیه",example:"vehmodel",wrap:"player"},
+  {value:"emote",title:"اجرای ایموت",label:"نام ایموت",example:"wave",wrap:"player"},
+  {value:"team",title:"تغییر تیم",label:"نام تیم",example:"blue",wrap:"player"},
+  {value:"mask",title:"تغییر ماسک",label:"عدد 0 تا 14",example:"1",wrap:"player"}
+ ],
+ vehicle:[
+  {value:"paint",title:"تغییر رنگ خودرو",label:"مقادیر RGB",example:"255,0,0",wrap:"vehicle"},
+  {value:"damage",title:"تغییر آسیب خودرو",label:"مقدار 0 تا 1000",example:"0",wrap:"vehicle"},
+  {value:"fuel",title:"تغییر سوخت",label:"مقدار 0 تا 1000",example:"1000",wrap:"vehicle"},
+  {value:"alwaysdrift",title:"دریفت دائمی",label:"true یا false",example:"true",wrap:"vehicle"},
+  {value:"arcadedriving",title:"رانندگی آرکید",label:"true یا false",example:"true",wrap:"vehicle"},
+  {value:"headlights",title:"چراغ جلو",label:"on یا off",example:"on",wrap:"vehicle"},
+  {value:"lock",title:"قفل خودرو",label:"true یا false",example:"true",wrap:"vehicle"},
+  {value:"alarm",title:"آلارم خودرو",label:"مدت",example:"10",wrap:"vehicle"},
+  {value:"repair",title:"تعمیر کامل خودرو",label:"بدون پارامتر",none:true,wrap:"vehicle"},
+  {value:"ghost",title:"غیرفعال کردن برخورد خودرو",label:"مدت",example:"5",wrap:"vehicle"}
+ ],
+ weapon:[
+  {value:"refill",title:"پر کردن همه سلاح‌ها",label:"بدون پارامتر",none:true,wrap:"weapon"},
+  {value:"refill*5",title:"پر کردن سلاح شماره 5",label:"بدون پارامتر",none:true,wrap:"weapon",raw:true},
+  {value:"empty",title:"خالی کردن همه سلاح‌ها",label:"بدون پارامتر",none:true,wrap:"weapon"},
+  {value:"empty*5",title:"خالی کردن سلاح شماره 5",label:"بدون پارامتر",none:true,wrap:"weapon",raw:true},
+  {value:"1",title:"انتخاب سلاح 1 — M9",label:"بدون پارامتر",none:true,wrap:"weapon"},
+  {value:"2",title:"انتخاب سلاح 2 — AR15",label:"بدون پارامتر",none:true,wrap:"weapon"},
+  {value:"3",title:"انتخاب سلاح 3 — AWSM",label:"بدون پارامتر",none:true,wrap:"weapon"},
+  {value:"4",title:"انتخاب سلاح 4 — M1014",label:"بدون پارامتر",none:true,wrap:"weapon"},
+  {value:"5",title:"انتخاب سلاح 5 — AKM",label:"بدون پارامتر",none:true,wrap:"weapon"},
+  {value:"6",title:"انتخاب سلاح 6 — UZI",label:"بدون پارامتر",none:true,wrap:"weapon"}
+ ],
+ inventory:[
+  {value:"add",title:"افزودن آیتم",label:"نام آیتم و مقدار با *",example:"item*1",wrap:"inventory"},
+  {value:"del",title:"حذف آیتم",label:"نام آیتم",example:"item",wrap:"inventory"}
+ ],
+ teleport:[
+  {value:"teleport",title:"تله‌پورت",label:"x,y,z*seconds*true/false",example:"120,5,-40*2*true",direct:true}
+ ],
+ effects:[
+  {value:"reverbzone",title:"محدوده پژواک",label:"شعاع و نوع",example:"30*cave",direct:true},
+  {value:"camerashake",title:"لرزش دوربین",label:"مقدار 0 تا 1",example:"0.5",direct:true},
+  {value:"flash",title:"چشمک صفحه",label:"بدون پارامتر",none:true,direct:true},
+  {value:"slowmo",title:"کند کردن زمان",label:"مدت",example:"5",direct:true},
+  {value:"lookat",title:"تنظیم نگاه دوربین",label:"x,y,z*time",example:"0,0,10*2",direct:true},
+  {value:"fog",title:"تنظیم مه",label:"مقدار 0 تا 100",example:"70",direct:true},
+  {value:"skycolor",title:"رنگ آسمان",label:"مقادیر RGB",example:"255,100,50",direct:true},
+  {value:"steam",title:"بخار",label:"بدون پارامتر",none:true,direct:true},
+  {value:"steam_small",title:"بخار کوچک",label:"بدون پارامتر",none:true,direct:true},
+  {value:"Drunk",title:"افکت مستی با زمان",label:"مدت برحسب ثانیه",example:"10",direct:true}
+ ],
+ world:[
+  {value:"setspawn",title:"تعیین محل Respawn",label:"x,y,z یا خالی",example:"120,5,-40",direct:true},
+  {value:"explode",title:"افکت انفجار در مختصات",label:"x,y,z یا خالی",example:"120,5,-40",direct:true},
+  {value:"time",title:"تنظیم زمان بازی",label:"day / night / عدد 0 تا 360",example:"day",direct:true},
+  {value:"weather",title:"تنظیم آب‌وهوا",label:"rain یا clear",example:"clear",direct:true},
+  {value:"cooldown",title:"فاصله اجرای مجدد",label:"ثانیه",example:"2",direct:true},
+  {value:"deactivate",title:"غیرفعال کردن TriggerBox",label:"مدت برحسب ثانیه",example:"5",direct:true},
+  {value:"executeplayer",title:"تنظیم اجرای بازیکن",label:"مقدار داخل آکولاد",example:"",direct:true}
+ ],
+ object:[
+  {value:"spawn",title:"ساخت آبجکت",label:"obj*coords*rotation",example:"obj*0,0,0*0,0,0",direct:true},
+  {value:"despawn",title:"حذف آبجکت",label:"نام آبجکت",example:"objectname",direct:true},
+  {value:"transform",title:"جابجایی آبجکت",label:"پارامترهای A و B و سرعت",example:"(A)0,0,0*(B)10,0,0*2*true",direct:true},
+  {value:"rotate",title:"چرخش آبجکت",label:"پارامترهای چرخش",example:"(A)0,0,0*(B)0,90,0*2*true*0",direct:true},
+  {value:"lookat",title:"جهت نگاه آبجکت",label:"پارامترهای موقعیت",example:"(A)0,0,0*(B)0,0,10*2*0*Y",direct:true},
+  {value:"scale",title:"تغییر اندازه آبجکت",label:"مختصات و اندازه",example:"(coords)0,0,0*(rescale)2,2,2*2*true",direct:true},
+  {value:"spread",title:"پخش تصادفی",label:"شعاع",example:"20",direct:true},
+  {value:"draw",title:"رسم گرافیک",label:"نام گرافیک و اندازه",example:"car*2",direct:true}
+ ],
+ npc:[
+  {value:"npckill",title:"دستور NPC",label:"پارامتر داخل آکولاد",example:"",direct:true},
+  {value:"npcanimation",title:"اجرای انیمیشن NPC",label:"نام انیمیشن",example:"wave",direct:true},
+  {value:"npcposition",title:"تغییر موقعیت NPC",label:"x,y,z",example:"12,0,45",direct:true},
+  {value:"npcrotation",title:"تغییر چرخش NPC",label:"x,y,z",example:"0,90,0",direct:true}
+ ],
+ ui:[
+  {value:"chat",title:"ارسال پیام در چت",label:"متن پیام",example:"Welcome to LAC MA",direct:true},
+  {value:"tip",title:"نمایش متن پایین صفحه",label:"متن",example:"LAC MA TIP",direct:true},
+  {value:"header",title:"نمایش متن بالای صفحه",label:"متن",example:"LAC MA",direct:true},
+  {value:"outro",title:"پیام پایان مپ",label:"متن",example:"Thanks for playing",direct:true},
+  {value:"interactionmenu",title:"مدیریت منوی تعامل",label:"allow / block / value",example:"allow",direct:true},
+  {value:"sound",title:"پخش صدا",label:"name*volume*distance*loop",example:"soundname*1*20*false",direct:true}
+ ],
+ cinematic:[
+  {value:"camsequence",title:"اجرای دوربین مرحله‌ای",label:"ساختار مراحل دوربین",example:"(seq1)3:10,5,20:0,90,0*(seq2)2:0,2,0:0,0,0",direct:true},
+  {value:"camtranslate",title:"حرکت نرم دوربین",label:"ساختار مراحل دوربین",example:"(seq1)3:10,5,20:0,90,0*(seq2)2:0,2,0:0,0,0",direct:true}
+ ],
+ minimap:[
+  {value:"minimap",title:"آیکون مینی‌مپ",label:"icon*uv یا icon*uv*pos یا icon*uv*attach",example:"icon*uv",direct:true},
+  {value:"minimap",title:"مسیر روی مینی‌مپ",label:"route یا route*pos",example:"route",direct:true},
+  {value:"minimap",title:"پاک کردن آیکون‌ها",label:"clear",example:"clear",direct:true}
+ ],
+ advanced:[
+  {value:"calltriggerbox",title:"فراخوانی TriggerBox",label:"coords*seconds",example:"0,0,0*2",direct:true},
+  {value:"webrequest",title:"درخواست GET",label:"link یا link*GET",example:"https://example.com*GET",direct:true},
+  {value:"webrequest",title:"درخواست POST",label:"link*POST*format*format",example:"https://example.com*POST*json*data",direct:true},
+  {value:"ban",title:"دستور مدیریت بن",label:"دلیل",example:"rule violation",direct:true},
+  {value:"kick",title:"دستور مدیریت اخراج",label:"دلیل",example:"rule violation",direct:true}
+ ]
+};
+
+const conditionGroups={
+ "زمان و محیط":[
+  ["time","زمان"],
+  ["weather","آب‌وهوا"],
+  ["radius","شعاع"],
+  ["playercount","تعداد بازیکنان"],
+  ["vehiclecount","تعداد خودروها"],
+  ["solidercount","تعداد سربازها"],
+  ["zombiecount","تعداد زامبی‌ها"],
+  ["objectname","نام شیء"],
+  ["cargoname","نام محموله"],
+  ["framerate","نرخ فریم"],
+  ["ping","پینگ"]
+ ],
+ "وضعیت بازیکن":[
+  ["skinid","شناسه اسکین"],
+  ["playerid","شناسه بازیکن"],
+  ["playername","نام بازیکن"],
+  ["playerheight","ارتفاع بازیکن"],
+  ["playerrotation","چرخش بازیکن"],
+  ["team","تیم"],
+  ["role","نقش"],
+  ["mask","ماسک"],
+  ["isfemale","وضعیت زن بودن"],
+  ["islocal","بازیکن محلی"],
+  ["ishost","میزبان"],
+  ["health","سلامت"],
+  ["killcount","تعداد کشتار"],
+  ["speed","سرعت"],
+  ["chat","پیام چت"]
+ ],
+ "وضعیت حرکت":[
+  ["issitting","نشسته"],
+  ["iscrouching","خم شده"],
+  ["isdrunk","مست"],
+  ["isragdoll","حالت Ragdoll"],
+  ["ispointing","اشاره کردن"],
+  ["isaiming","نشانه‌گیری"],
+  ["isshooting","شلیک کردن"],
+  ["isreloading","در حال بارگذاری مجدد"],
+  ["cammode","حالت دوربین"],
+  ["israce","در مسابقه"],
+  ["flytimer","زمان پرواز"]
+ ],
+ "سلاح و گوشی":[
+  ["weapon","سلاح"],
+  ["magcount","تعداد خشاب"],
+  ["ammocount","تعداد فشنگ"],
+  ["hasheistbag","کیف"],
+  ["interactionmenuclick","دکمه منو"],
+  ["isholdingphone","گوشی در دست"],
+  ["dial","شماره‌گیری"],
+  ["phonemenu","منوی گوشی"]
+ ],
+ "وسیله نقلیه":[
+  ["isinvehicle","داخل خودرو"],
+  ["isdriver","راننده"],
+  ["isvehicleowner","مالک خودرو"],
+  ["ishonking","بوق زدن"],
+  ["isintaxi","داخل تاکسی"],
+  ["hassiren","دارای آژیر"],
+  ["vehiclemodel","مدل خودرو"],
+  ["vehiclehealth","سلامت خودرو"],
+  ["fuel","سوخت"]
+ ]
+};
+
+let cmdCommands=[];
+let cmdConditions=[];
+let conditionId=0;
+
+const cmdMode=document.getElementById("cmdMode");
+const cmdCategory=document.getElementById("cmdCategory");
+const cmdAction=document.getElementById("cmdAction");
+
+function addConditionRow(key="dial",operator="=",value="5"){
+ cmdConditions.push({id:++conditionId,key,operator,value});
+ renderConditions();
+ renderCMD();
+}
+function clearConditions(){
+ cmdConditions=[];
+ renderConditions();
+ renderCMD();
+}
+function renderConditions(){
+ const box=document.getElementById("conditionList");
+ box.innerHTML="";
+ if(!cmdConditions.length){
+  box.innerHTML='<div class="cmd-help">هیچ شرطی اضافه نشده است.</div>';
+  return;
+ }
+ cmdConditions.forEach(condition=>{
+  const row=document.createElement("div");
+  row.className="condition-row";
+
+  const keySelect=document.createElement("select");
+  Object.entries(conditionGroups).forEach(([group,items])=>{
+   const optgroup=document.createElement("optgroup");
+   optgroup.label=group;
+   items.forEach(([key,label])=>{
+    const option=document.createElement("option");
+    option.value=key;
+    option.textContent=label+" ("+key+")";
+    optgroup.appendChild(option);
+   });
+   keySelect.appendChild(optgroup);
+  });
+  keySelect.value=condition.key;
+  keySelect.onchange=()=>{
+   condition.key=keySelect.value;
+   renderCMD();
+  };
+
+  const opSelect=document.createElement("select");
+  ["=",">","<","!="].forEach(op=>{
+   const option=document.createElement("option");
+   option.value=op;
+   option.textContent=op;
+   opSelect.appendChild(option);
+  });
+  opSelect.value=condition.operator;
+  opSelect.onchange=()=>{
+   condition.operator=opSelect.value;
+   renderCMD();
+  };
+
+  const valueInput=document.createElement("input");
+  valueInput.value=condition.value;
+  valueInput.placeholder="مقدار";
+  valueInput.oninput=()=>{
+   condition.value=valueInput.value;
+   renderCMD();
+  };
+
+  const remove=document.createElement("button");
+  remove.type="button";
+  remove.textContent="×";
+  remove.title="حذف شرط";
+  remove.onclick=()=>{
+   cmdConditions=cmdConditions.filter(x=>x.id!==condition.id);
+   renderConditions();
+   renderCMD();
+  };
+
+  row.append(keySelect,opSelect,valueInput,remove);
+  box.appendChild(row);
+ });
+}
+
+function updateActionOptions(){
+ const category=cmdCategory.value;
+ const actions=cmdCatalog[category]||[];
+ const customBox=document.getElementById("customActionBox");
+ const parameterBox=document.getElementById("cmdParameterBox");
+ cmdAction.innerHTML="";
+
+ if(category==="custom"){
+  customBox.style.display="block";
+  parameterBox.style.display="none";
+  return;
+ }
+ customBox.style.display="none";
+ parameterBox.style.display="block";
+
+ actions.forEach((action,index)=>{
+  const option=document.createElement("option");
+  option.value=String(index);
+  option.textContent=action.title;
+  cmdAction.appendChild(option);
+ });
+ updateParameterInfo();
+}
+function updateParameterInfo(){
+ const actions=cmdCatalog[cmdCategory.value]||[];
+ const action=actions[Number(cmdAction.value)];
+ if(!action)return;
+ document.getElementById("cmdParameterLabel").textContent=action.label;
+ document.getElementById("cmdParameter").value=action.example||"";
+ document.getElementById("cmdParameter").placeholder=action.example||"بدون پارامتر";
+ document.getElementById("cmdParameterHelp").textContent=
+ action.direct?"قالب دستور: "+action.value+"{پارامتر}":
+ "قالب گروه: "+action.wrap+"{"+action.value+"*پارامتر}";
+ document.getElementById("cmdParameterBox").style.display=action.none?"none":"block";
+}
+function getSelectedAction(){
+ const category=cmdCategory.value;
+ if(category==="custom"){
+  const raw=document.getElementById("customAction").value.trim();
+  if(!raw){alert("دستور سفارشی را وارد کنید.");return null;}
+  if(/[\r\n]/.test(raw)){alert("هر دستور سفارشی باید فقط یک خط باشد.");return null;}
+  if(!/^[a-zA-Z_][a-zA-Z0-9_]*\{.*\}$/.test(raw)){
+   alert("قالب دستور سفارشی باید مانند chat{Hello} باشد.");
+   return null;
+  }
+  return raw;
+ }
+ const action=(cmdCatalog[category]||[])[Number(cmdAction.value)];
+ if(!action)return null;
+ if(action.none){
+  if(action.raw)return action.wrap+"{"+action.value+"}";
+  return action.direct?action.value+"{}":action.wrap+"{"+action.value+"}";
+ }
+ const parameter=document.getElementById("cmdParameter").value.trim();
+ if(!parameter){alert("پارامتر دستور را وارد کنید.");return null;}
+ if(/[\r\n{}]/.test(parameter)){alert("پارامتر نامعتبر است.");return null;}
+ if(action.direct)return action.value+"{"+parameter+"}";
+ if(action.raw)return action.wrap+"{"+action.value+"}";
+ return action.wrap+"{"+action.value+"*"+parameter+"}";
+}
+function getConditionText(){
+ if(!cmdConditions.length)return "";
+ const parts=[];
+ for(const c of cmdConditions){
+  const value=String(c.value).trim();
+  if(!value){alert("مقدار تمام شرط‌ها را وارد کنید.");return null;}
+  if(/[{}\r\n&]/.test(value)){alert("مقدار شرط نامعتبر است.");return null;}
+  parts.push(c.key+c.operator+value);
+ }
+ return parts.join(" && ");
+}
+function buildCMD(){
+ const mode=cmdMode.value;
+ const condition=getConditionText();
+ if(condition===null)return null;
+
+ const lines=["mode{"+mode+"}"];
+ if(condition)lines.push("ifcondition{"+condition+"}");
+
+ cmdCommands.forEach(item=>lines.push(item.text));
+
+ if(mode==="loop"){
+  const cooldown=document.getElementById("cmdCooldown").value;
+  const number=Number(cooldown);
+  if(!cooldown||!Number.isFinite(number)||number<=0){
+   alert("برای حالت Loop یک Cooldown معتبر و بزرگ‌تر از صفر وارد کنید.");
+   return null;
+  }
+  const hasCooldown=cmdCommands.some(item=>/^cooldown\s*\{/.test(item.text.trim()));
+  if(!hasCooldown)lines.push("cooldown{"+number+"}");
+ }
+ return lines.join("\n");
+}
+function previewCommand(){
+ const result=buildCMD();
+ if(result===null)return;
+ document.getElementById("cmdOutput").textContent=result;
+ document.getElementById("cmdStatus").textContent="وضعیت: پیش‌نمایش آماده است";
+}
+function addCommand(){
+ const action=getSelectedAction();
+ if(!action)return;
+ cmdCommands.push({id:Date.now()+Math.random(),text:action});
+ renderCMD();
+}
+function removeCommand(id){
+ cmdCommands=cmdCommands.filter(item=>item.id!==id);
+ renderCMD();
+}
+function moveCommand(id,direction){
+ const index=cmdCommands.findIndex(item=>item.id===id);
+ const target=index+direction;
+ if(index<0||target<0||target>=cmdCommands.length)return;
+ [cmdCommands[index],cmdCommands[target]]=[cmdCommands[target],cmdCommands[index]];
+ renderCMD();
+}
+function renderCMD(){
+ const result=buildCMD();
+ if(result!==null)document.getElementById("cmdOutput").textContent=result;
+ document.getElementById("cmdCount").textContent="تعداد دستورات: "+cmdCommands.length;
+
+ const list=document.getElementById("cmdList");
+ list.innerHTML="";
+ if(!cmdCommands.length){
+  list.innerHTML='<div class="cmd-help">هنوز دستوری اضافه نشده است.</div>';
+ }else{
+  cmdCommands.forEach((item,index)=>{
+   const div=document.createElement("div");
+   div.className="cmd-item";
+   const code=document.createElement("code");
+   code.textContent=(index+1)+". "+item.text;
+   const controls=document.createElement("div");
+   controls.className="cmd-item-controls";
+
+   const up=document.createElement("button");
+   up.className="move";up.textContent="↑";up.title="انتقال به بالا";
+   up.onclick=()=>moveCommand(item.id,-1);
+
+   const down=document.createElement("button");
+   down.className="move";down.textContent="↓";down.title="انتقال به پایین";
+   down.onclick=()=>moveCommand(item.id,1);
+
+   const remove=document.createElement("button");
+   remove.textContent="حذف";
+   remove.onclick=()=>removeCommand(item.id);
+
+   controls.append(up,down,remove);
+   div.append(code,controls);
+   list.appendChild(div);
+  });
+ }
+ document.getElementById("cmdStatus").textContent=
+ "وضعیت: "+(cmdCommands.length?"پروژه در حال ساخت":"آماده ساخت پروژه");
+}
+function clearCMD(){
+ if(!confirm("تمام دستورات و شرط‌های پروژه پاک شوند؟"))return;
+ cmdCommands=[];
+ cmdConditions=[];
+ document.getElementById("cmdDescription").value="";
+ document.getElementById("cmdCooldown").value="2";
+ document.getElementById("customAction").value="";
+ renderConditions();
+ renderCMD();
+}
+function addSample(){
+ cmdMode.value="loop";
+ cmdConditions=[
+  {id:++conditionId,key:"dial",operator:"=",value:"5"},
+  {id:++conditionId,key:"speed",operator:">",value:"300"}
+ ];
+ cmdCommands=[
+  {id:Date.now()+1,text:"chat{LAC MA}"},
+  {id:Date.now()+2,text:"tip{Welcome to LAC MA}"}
+ ];
+ document.getElementById("cmdCooldown").value="2";
+ document.getElementById("cmdCategory").value="ui";
+ updateActionOptions();
+ renderConditions();
+ renderCMD();
+}
+function copyCMD(){
+ const output=document.getElementById("cmdOutput").textContent;
+ if(!output.trim()){alert("ابتدا یک CMD بسازید.");return;}
+ if(navigator.clipboard&&window.isSecureContext){
+  navigator.clipboard.writeText(output)
+   .then(()=>alert("CMD با موفقیت کپی شد!"))
+   .catch(()=>fallbackCopy(output));
+ }else fallbackCopy(output);
+}
+function fallbackCopy(text){
+ const area=document.createElement("textarea");
+ area.value=text;area.style.position="fixed";area.style.opacity="0";
+ document.body.appendChild(area);area.select();
+ try{document.execCommand("copy");alert("CMD کپی شد!");}
+ catch(e){alert("کپی خودکار ممکن نیست. متن را دستی انتخاب کنید.");}
+ area.remove();
+}
+function downloadCMD(){
+ const output=document.getElementById("cmdOutput").textContent;
+ const description=document.getElementById("cmdDescription").value.trim();
+ const blob=new Blob(["\uFEFF"+output],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const link=document.createElement("a");
+ link.href=url;
+ link.download=(description?description.replace(/[^a-z0-9_-]/gi,"_"):"LAC_MA_TRIGGERBOX")+".txt";
+ link.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+cmdCategory.addEventListener("change",updateActionOptions);
+cmdAction.addEventListener("change",updateParameterInfo);
+cmdMode.addEventListener("change",()=>{
+ document.getElementById("cooldownBox").style.display=cmdMode.value==="loop"?"block":"none";
+ renderCMD();
+});
+document.getElementById("cmdCooldown").addEventListener("input",renderCMD);
+
+updateActionOptions();
+addConditionRow("dial","=","5");
+renderConditions();
+renderCMD();
+
+/* QUIZ */
+const questions=[
+ {q:"برای کنترل بهتر خودرو چه کاری مناسب‌تر است؟",a:["رانندگی با حداکثر سرعت","تمرین در مسیر خلوت","نادیده گرفتن ترمز","تغییر تصادفی تنظیمات"],correct:1},
+ {q:"اولین مرحله در ساخت یک مپ چیست؟",a:["انتشار فوری","حذف تمام اشیا","ایده‌پردازی و طراحی","دعوت بازیکنان"],correct:2},
+ {q:"در Multiplayer کدام مورد اهمیت بیشتری دارد؟",a:["رعایت قوانین","مزاحمت برای دیگران","نادیده گرفتن سرور","قطع ارتباط تیمی"],correct:0},
+ {q:"بهترین روش انتخاب تنظیمات گرافیکی چیست؟",a:["همیشه بالاترین کیفیت","تناسب با توان گوشی","انتخاب تصادفی","خاموش کردن همه گزینه‌ها"],correct:1}
+];
+let qi=0,score=0,answered=false;
+function startQuiz(){qi=0;score=0;showQuestion();}
+function showQuestion(){
+ answered=false;
+ const q=questions[qi];
+ document.getElementById("question").innerText="سؤال "+(qi+1)+" از "+questions.length+": "+q.q;
+ const box=document.getElementById("options");box.innerHTML="";
+ q.a.forEach((answer,index)=>{
+  const btn=document.createElement("button");
+  btn.innerText=answer;
+  btn.onclick=()=>answerQuestion(index,btn);
+  box.appendChild(btn);
+ });
+ document.getElementById("quiz-result").innerText="";
+}
+function answerQuestion(index,btn){
+ if(answered)return;
+ answered=true;
+ const q=questions[qi];
+ const buttons=document.querySelectorAll(".quiz-options button");
+ buttons.forEach((b,i)=>{if(i===q.correct)b.classList.add("correct");});
+ if(index===q.correct){
+  score++;
+  document.getElementById("quiz-result").innerText="آفرین! پاسخ درست است.";
+ }else{
+  btn.classList.add("wrong");
+  document.getElementById("quiz-result").innerText="این پاسخ درست نبود. پاسخ صحیح مشخص شده است.";
+ }
+ const next=document.createElement("button");
+ next.innerText=qi===questions.length-1?"مشاهده نتیجه":"سؤال بعدی ←";
+ next.style.marginTop="15px";
+ next.onclick=nextQuestion;
+ document.getElementById("options").appendChild(next);
+}
+function nextQuestion(){
+ qi++;
+ if(qi<questions.length)showQuestion();
+ else{
+  document.getElementById("question").innerText="آزمون به پایان رسید!";
+  document.getElementById("options").innerHTML='<button onclick="startQuiz()">شروع دوباره آزمون</button>';
+  document.getElementById("quiz-result").innerText="امتیاز شما: "+score+" از "+questions.length;
+ }
+}
+
+window.addEventListener("scroll",()=>{
+ const max=document.documentElement.scrollHeight-innerHeight;
+ const value=max>0?(scrollY/max)*100:0;
+ document.getElementById("progress").style.width=value+"%";
+});
+updateProgress();
+</script>
+</body>
+</html>
